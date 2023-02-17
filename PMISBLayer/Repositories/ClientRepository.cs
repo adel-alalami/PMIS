@@ -9,7 +9,7 @@ namespace PMISBLayer.Repositories
 {
     public class ClientRepository : IClientRepository
     {
-        ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext dbContext;
         public ClientRepository(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;

@@ -13,8 +13,8 @@ namespace PMISAppLayer.Controllers
     [Authorize]
     public class PaymentTermController : Controller
     {
-        IPaymentTermRepository paymentTermRepository;
-        IDeliverableRepository deliverableRepository;
+        private readonly IPaymentTermRepository paymentTermRepository;
+        private readonly IDeliverableRepository deliverableRepository;
         public PaymentTermController(IPaymentTermRepository paymentTermRepository, IDeliverableRepository deliverableRepository)
         {
             this.paymentTermRepository = paymentTermRepository;

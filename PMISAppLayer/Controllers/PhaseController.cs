@@ -14,9 +14,9 @@ namespace PMISAppLayer.Controllers
     [Authorize]
     public class PhaseController : Controller
     {
-        IProjectPhaseRepository ProjectPhaseRepository;
-        IPhaseRepository PhaseRepository;
-        IProjectRepository projectRepository;
+        private readonly IProjectPhaseRepository ProjectPhaseRepository;
+        private readonly IPhaseRepository PhaseRepository;
+        private readonly IProjectRepository projectRepository;
 
         public PhaseController(
             IProjectRepository projectRepository,

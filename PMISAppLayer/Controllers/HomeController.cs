@@ -14,10 +14,10 @@ namespace PMISBLayer.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        IProjectRepository projectRepository;
-        IClientRepository clientRepository;
-        IInvoiceRepository invoiceRepository;
-        IPaymentTermRepository paymentTermRepository;
+        private readonly IProjectRepository projectRepository;
+        private readonly IClientRepository clientRepository;
+        private readonly IInvoiceRepository invoiceRepository;
+        private readonly IPaymentTermRepository paymentTermRepository;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController

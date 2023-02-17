@@ -13,8 +13,8 @@ namespace PMISAppLayer.Controllers
     [Authorize]
     public class DeliverableController : Controller
     {
-        IDeliverableRepository deliverableRepository;
-        IProjectPhaseRepository projectPhaseRepository;
+        private readonly IDeliverableRepository deliverableRepository;
+        private readonly IProjectPhaseRepository projectPhaseRepository;
         public DeliverableController(IDeliverableRepository deliverableRepository, IProjectPhaseRepository projectPhaseRepository)
         {
             this.deliverableRepository = deliverableRepository;

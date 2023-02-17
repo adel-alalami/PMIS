@@ -14,9 +14,9 @@ namespace PMISAppLayer.Controllers
     [Authorize]
     public class InvoiceController : Controller
     {
-        IInvoiceRepository InvoiceRepository;
-        IProjectRepository ProjectRepository;
-        IPaymentTermRepository PaymentTermRepository;
+        private readonly IInvoiceRepository InvoiceRepository;
+        private readonly IProjectRepository ProjectRepository;
+        private readonly IPaymentTermRepository PaymentTermRepository;
         public InvoiceController(IInvoiceRepository InvoiceRepository, IProjectRepository ProjectRepository, IPaymentTermRepository PaymentTermRepository)
         {
             this.InvoiceRepository = InvoiceRepository;

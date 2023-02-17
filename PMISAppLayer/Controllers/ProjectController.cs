@@ -16,11 +16,11 @@ namespace PMISAppLayer.Controllers
     [Authorize]
     public class ProjectController : Controller
     {
-        IProjectRepository projectRepository;
-        IClientRepository clientRepository;
-        IProjectTypeRepository projectTypeRepository;
-        IProjectStatusRepository projectStatusRepository;
-        IProjectPhaseRepository projectPhaseRepository;
+        private readonly IProjectRepository projectRepository;
+        private readonly IClientRepository clientRepository;
+        private readonly IProjectTypeRepository projectTypeRepository;
+        private readonly IProjectStatusRepository projectStatusRepository;
+        private readonly IProjectPhaseRepository projectPhaseRepository;
         
         public ProjectController(
             IProjectRepository projectRepository,

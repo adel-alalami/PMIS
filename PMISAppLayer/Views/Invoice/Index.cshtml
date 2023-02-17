@@ -1,0 +1,60 @@
+﻿@using PMISBLayer.Entities
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    @if (User.IsInRole("ProjectManager"))
+                    {
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-outline-secondary d-inline-block mb-2" href="/Invoice/CreateNewInvoice"><i class="fa-solid fa-plus"></i> New Invoice</a>
+                        </div>
+                    }
+                    <table id="table_id" class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tiltle</th>
+                                <th>Date</th>
+                                <th>Project</th>
+                                <th>Detailed Invoice</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var x = 0;
+                                foreach (var invoice in (List<Invoice>)ViewBag.invoices)
+                                {
+                                    x++;
+                                    <tr>
+                                        <th scope="row">@x</th>
+                                        <td>@invoice.InvoiceTitle</td>
+                                        <td>@invoice.InvoiceDate.Date.ToString("dd/MM/yyyy")</td>
+                                        <td>@invoice.Project.ProjectName</td>
+                                        <td><a href="/Invoice/ViewInvoice?invoiceId=@invoice.InvoiceId">View</a></td>
+                                        <td style="text-align:center">
+                                            <a class="text-success" href="/Invoice/EditInvoice?invoiceId=@invoice.InvoiceId"><i class="fa-solid fa-pen-to-square mr-sm-3"></i></a>|
+                                            <a class="text-danger" href="/Invoice/RemoveInvoice?invoiceId=@invoice.InvoiceId"><i class="fa-solid fa-trash ml-sm-3"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.12.1/b-2.2.3/fc-4.1.0/sc-2.0.6/sb-1.3.3/sp-2.0.1/sl-1.4.0/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.6.0/dt-1.12.1/b-2.2.3/fc-4.1.0/sc-2.0.6/sb-1.3.3/sp-2.0.1/sl-1.4.0/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+}

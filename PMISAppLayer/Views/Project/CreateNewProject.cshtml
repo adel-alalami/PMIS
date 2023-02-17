@@ -1,0 +1,114 @@
+﻿@using PMISAppLayer.DTOs
+@using PMISBLayer.Entities
+@model InsertProjectDTO
+
+@{
+    string[] dateErrors = new string[2] { null, null };
+    if (ViewBag.DateErrors != null)
+    {
+        dateErrors = ViewBag.DateErrors;
+    }
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="basic-form">
+
+                    <form action="/Project/InsertNewProject" method="post" enctype="multipart/form-data">
+
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Project Name</label>
+                                <input class="form-control" asp-for="ProjectName" />
+                                <span class="text-danger" asp-validation-for="ProjectName"></span>
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Select Client</label>
+                                <select class="form-control" asp-for="ClientId">
+                                    <option selected disabled>Choose</option>
+                                    @{
+                                        foreach (var client in (List<Client>)ViewBag.Clients)
+                                        {
+                                            <option value="@client.ClientId">@client.ClientName - @client.ClientStreetAddress - @client.ClientEmail</option>
+                                        }
+                                    }
+                                </select>
+                                <span class="text-danger" asp-validation-for="ClientId"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Start Date</label>
+                                <input type="date" class="form-control" asp-for="StartDate" />
+                                @if (dateErrors[0] != null)
+                                {
+                                    <span class="text-danger">@dateErrors[0]</span>
+                                }
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>End Date</label>
+                                <input type="date" class="form-control" asp-for="EndDate" />
+                                @if (dateErrors[1] != null)
+                                {
+                                    <span class="text-danger">@dateErrors[1]</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Select Project Type</label>
+                                <select class="form-control" asp-for="ProjectTypeId">
+                                    <option selected disabled>Choose</option>
+                                    @{
+                                        foreach (var type in (List<ProjectType>)ViewBag.ProjectTypes)
+                                        {
+                                            <option value="@type.ProjectTypeId">@type.ProjectTypeName</option>
+                                        }
+                                    }
+                                </select>
+                                <span class="text-danger" asp-validation-for="ProjectTypeId"></span>
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Select Status</label>
+                                <select class="form-control" asp-for="ProjectStatusId">
+                                    <option selected disabled>Choose</option>
+                                    @{
+                                        foreach (var status in (List<ProjectStatus>)ViewBag.ProjectStatuses)
+                                        {
+                                            <option value="@status.ProjectStatusId">@status.ProjectStatusName</option>
+                                        }
+                                    }
+                                </select>
+                                <span class="text-danger" asp-validation-for="ProjectStatusId"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Contract Amount</label>
+                                <input class="form-control" value="0" asp-for="ContractAmount" />
+                                <span class="text-danger" asp-validation-for="ContractAmount"></span>
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Contract File</label>
+                                <input type="file" class="form-control"  asp-for="ContractFile" />
+                                <span class="text-danger" asp-validation-for="ContractFile"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group d-flex justify-content-center"><input type="submit" value="Create" class="btn btn-primary"> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

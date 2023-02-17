@@ -1,0 +1,69 @@
+﻿@using PMISBLayer.Entities
+@using PMISAppLayer.DTOs
+@model Deliverable
+@{
+    var ProjectPhaseId = ViewBag.ProjectPhaseId;
+    string[] dateErrors = new string[3] { null, null, null };
+    if (ViewBag.DateErrors != null)
+    {
+        dateErrors = ViewBag.DateErrors;
+    }
+}
+@*<script>
+        $(function () {
+            $("#StartDate").datepicker();
+            $("#EndDate").datepicker();
+        });
+    </script>*@
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="basic-form">
+                    <form action="/Deliverable/UpdateDeliverable?deliverableId=@Model.DeliverableId&ProjectPhaseId=@ProjectPhaseId" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Deliverable Name</label>
+                                <input class="form-control" asp-for="DeliverableName" />
+                                <span class="text-danger" asp-validation-for="DeliverableName"></span>
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Deliverable Description</label>
+                                <input class="form-control" asp-for="DeliverableDescription" />
+                                <span class="text-danger" asp-validation-for="DeliverableDescription"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>Start Date</label>
+                                <input type="date" class="form-control" asp-for="StartDate" />
+                                @if (dateErrors[0] != null)
+                                {
+                                    <span class="text-danger">@dateErrors[0]</span>
+                                }
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label>End Date</label>
+                                <input type="date" class="form-control" asp-for="EndDate" />
+                                @if (dateErrors[1] != null)
+                                {
+                                    <span class="text-danger">@dateErrors[1]</span>
+                                }
+                                <br />
+                                @if (dateErrors[2] != null)
+                                {
+                                    <span class="text-danger">@dateErrors[2]</span>
+                                }
+                            </div>
+                        </div>
+                        <input class="form-control btn-success" style="width:20%; position:relative; left:40%" type="submit" value="Save Changes" />
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PMISBLayer.Entities;
-using PMISBLayer.Repositories;
+using Core.Entities;
+using Core.Repositories;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PMISAppLayer.DTOs;
+using Core.DTOs;
 using Microsoft.AspNetCore.Authorization;
 
 namespace PMISAppLayer.Controllers

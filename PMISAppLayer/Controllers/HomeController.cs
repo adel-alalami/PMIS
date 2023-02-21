@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PMISBLayer.Models;
-using PMISBLayer.Repositories;
+using Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PMISBLayer.Controllers
+namespace PMISAppLayer.Controllers
 {
     [Authorize]
     public class HomeController : Controller

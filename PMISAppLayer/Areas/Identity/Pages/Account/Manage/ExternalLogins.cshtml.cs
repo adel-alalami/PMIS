@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PMISBLayer.Entities;
+using Core.Entities;
 
 namespace PMISAppLayer.Areas.Identity.Pages.Account.Manage
 {

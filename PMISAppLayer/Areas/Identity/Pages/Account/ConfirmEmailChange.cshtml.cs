@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using PMISBLayer.Entities;
+using Core.Entities;
 
 namespace PMISAppLayer.Areas.Identity.Pages.Account
 {

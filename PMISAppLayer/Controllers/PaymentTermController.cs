@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PMISAppLayer.DTOs;
-using PMISBLayer.Entities;
-using PMISBLayer.Repositories;
+using Core.DTOs;
+using Core.Entities;
+using Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
